@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/swiper.min.js"></script>
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<script src="js/zepto.js"></script>
+		<script src="js/iscroll-probe.js"></script>
+		<link rel="stylesheet" href="css/new_file.css" />
+		
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+	<!--头部-->	
+		<header>
+			<div><img src="img/header-1_03.jpg" alt="" /></div>
+			<div><input type="text" value="搜索"/></div>
+			<div><img src="img/header-2_03.gif" alt="" /></div>
+		</header>
+		
+		
+		
+		<div id="top">
+		
+		<div>
+			
+			
+			
+			<nav>
+				<ul>
+					<li>主题推荐</li>
+					<li>个性推荐</li>
+					<li>歌单</li>
+					<li>排行榜</li>
+				</ul>
+			</nav>
+			
+			
+			<div class="swiper-container" id="a1">
+				<ul class="swiper-wrapper">
+					<!--<li class="swiper-slide">
+						<img src="img/banner_02.jpg" alt="" />
+					</li>-->
+				</ul>
+			</div>
+			<div class="a2">
+				<ul>
+					<!--<li>
+						<img src="img/tubiao_03.jpg" alt="" />
+						<p>111</p>
+					</li>-->
+						
+				</ul>
+			</div>
+			<!--推荐-->
+			<div class="aa">
+				<h3>推荐歌单    ></h3>
+			</div>
+			<!--4-->
+			
+			<div class="a3">
+				<ul>
+					
+					<li>
+						<img src="img/con-1_02.gif" alt="" />
+						<p>军舰的那份v决定能否v哦都 你家的女眷的</p>
+					</li>
+				</ul>
+			</div>
+			
+			<!--独家-->
+			<div class="aa">
+				<h3>独家放送    ></h3>
+			</div>
+			
+			<!--5-->
+			<div class="a4">
+				<ul>
+					
+<!--					
+					<li>
+						<img src="img/con-1_02.gif" alt="" />
+						<p>军舰的那份v决定能否v哦都 你家的女眷的</p>
+					</li>-->
+				</ul>
+			</div>
+			<!--獭兔-->
+			<div class="a5">
+				<img src="img/banner-2_02.jpg"/>
+				<p>地方v比较坑爹局开局的家的女眷的</p>
+				
+			</div>
+			<!--最新-->
+			<div class="aa">
+
+				<h3>最新歌曲   ></h3>
+			</div>
+			<div class="a6">
+				<ul>
+					
+					<li>
+						<img src="img/con-1_02.gif" alt="" />
+						<p>军舰的那份v决定能否v哦都 你家的女眷的</p>
+					</li>
+				</ul>
+			</div>
+			<div class="aa">
+
+				<h3>推荐mv  ></h3>
+			</div>
+			<div class="a7">
+				<ul>
+					
+					
+					<!--<li>
+						<img src="img/con-1_02.gif" alt="" />
+						<p>军舰的那份v决定能否v哦都 你家的女眷的</p>
+					</li>
+					-->
+				</ul>
+			</div>
+			
+			<div class="aa">
+
+
+				<h3>主播推荐  ></h3>
+			</div>
+			
+			
+			<div class="a8">
+				<ul>
+					
+					<!--<li>
+						<img src="img/con-1_02.gif" alt="" />
+						<p>军舰的那份v决定能否v哦都 你家的女眷的</p>
+					</li>-->
+				</ul>
+			</div>	
+			
+			
+			
+			
+			<div style="height:800px;"></div>
+			
+			
+			
+		</div>	
+		</div>
+		
+	 
+		
+		<footer>
+			<ul>
+				<li>
+					<img src="img/footer_03.gif" alt="" />
+					<p>发现音乐</p>
+				</li>
+				<li>
+					<img src="img/footer_05.gif" alt="" />
+					<p>我的音乐</p>
+				</li>
+				<li>
+					<img src="img/footer_07.gif" alt="" />
+					<p>盆友</p>
+				</li>
+				<li>
+					<img src="img/footer_09.jpg" alt="" />
+					<p>我的</p>
+				</li>
+			</ul>
+		</footer>
+		
+		</div>
+		
+		
+		
+		<script>
+			
+			var ms=new IScroll("#top",{
+				probeType:3,
+			})
+			
+			
+			
+			$.ajax({
+				url:"http://127.0.0.1:8585/1",
+				success:function(data){
+					var obj=JSON.parse(data)
+					var str=""
+					for(var i of obj.infon){
+						str+='<li class="swiper-slide">'
+						  +'<img src="img/'+i.img+'" alt="" />'
+					   +'</li>'
+					}
+					$("#a1 ul").html(str)
+					var mys=new Swiper("#a1",{
+						autoplay:2000,
+				
+					})
+			 
+				
+				
+				
+				//第二部
+//				
+				var str1=""
+					for(var j of obj.one){
+						str1+='<li>'
+						+'<img src="img/'+j.img+'" alt="" />'
+						+'<p>'+j.p+'</p>'
+					     +'</li>'
+					}
+					$(".a2 ul").html(str1)
+//				
+//				//3
+				var str2=""
+				console.log(obj.two)
+					for(var j1 of obj.two){
+						console.log(j1.p)
+						str2 += '<li>'
+									+'<img src="img/'+j1.img+'" alt="" />'
+									+'<p>'+j1.p+'</p>'
+								+'</li>'
+					}
+					$(".a3 ul").html(str2)
+//					
+//					
+//			//4	
+				var str3=""
+					for(var j2 of obj.three){
+						str3+='<li>'
+						+'<img src="img/'+j2.img+'" alt="" />'
+						+'<p>'+j2.p+'</p>'
+					+'</li>'
+					}
+					$(".a4 ul").html(str3)
+//				
+//				
+//			//5	
+			var str4=""
+					for(var j3 of obj.four){
+						str4+='<li>'
+						+'<img src="img/'+j3.img+'" alt="" />'
+						+'<p>'+j3.p+'</p>'
+					+'</li>'
+					}
+					$(".a6 ul").html(str4)	
+//				
+//				
+//			//6	
+				var str5=""
+					for(var j4 of obj.five){
+						str5+='<li>'
+						+'<img src="img/'+j4.img+'" alt="" />'
+						+'<p>'+j4.p+'</p>'
+					+'</li>'
+					}
+					$(".a7 ul").html(str5)
+//				
+//				
+//				
+//				
+//			//6	
+//				
+//				
+			var str6=""
+					for(var j6 of obj.six){
+						str6+='<li>'
+						+'<img src="img/'+j6.img+'" alt="" />'
+						+'<p>'+j6.p+'</p>'
+					     +'</li>'
+					}
+					$(".a8 ul").html(str6)
+//					
+//				
+//				
+//				
+//				
+//				
+//				
+				}
+			
+			})
+//			
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>
